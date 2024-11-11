@@ -1,0 +1,420 @@
+{
+	"info": {
+		"_postman_id": "4e846742-8b78-4572-96d8-be6bebeae3b9",
+		"name": "Pruebas con Usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9276250"
+	},
+	"item": [
+		{
+			"name": "usuarios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/usuarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuarios"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "nombre",
+							"value": "Maria",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "laura@email.com",
+							"disabled": true
+						},
+						{
+							"key": "nombre",
+							"value": "Alonso",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Usuarios",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/usuarios",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 10,\n        \"nombre\": \"Laura\",\n        \"apellido\": \"Perez\",\n        \"email\": \"laura@email.com\",\n        \"clave\": \"12345\",\n        \"telefono\": \"12345\",\n        \"estado\": \"Activo\"\n    },\n        {\n        \"id\": 11,\n        \"nombre\": \"Maria\",\n        \"apellido\": \"Perez\",\n        \"email\": \"laura@email.com\",\n        \"clave\": \"12345\",\n        \"telefono\": \"12345\",\n        \"estado\": \"Activo\"\n    }\n]"
+				},
+				{
+					"name": "Get usuario por id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/usuarios?id=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n        \"id\": 10,\n        \"nombre\": \"Laura\",\n        \"apellido\": \"Perez\",\n        \"email\": \"laura@email.com\",\n        \"clave\": \"12345\",\n        \"telefono\": \"12345\",\n        \"estado\": \"Activo\"\n}"
+				},
+				{
+					"name": "Get usuario por nombre",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/usuarios?nombre=Maria",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "Maria"
+								}
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n        \"id\": 11,\n        \"nombre\": \"Maria\",\n        \"apellido\": \"Perez\",\n        \"email\": \"laura@email.com\",\n        \"clave\": \"12345\",\n        \"telefono\": \"12345\",\n        \"estado\": \"Activo\"\n}"
+				},
+				{
+					"name": "Get por email",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/usuarios?email=laura@email.com",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "laura@email.com"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"email\": \"laura@email.com\"\n}"
+				},
+				{
+					"name": "Get por Nombre No encontrado",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/usuarios?nombre=Alonso",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "Alonso"
+								}
+							]
+						}
+					},
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": \"Not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "usuarios",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/usuarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/usuarios",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "usuarios",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/usuarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/usuarios",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "usuarios",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/usuarios",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/usuarios",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://16bcd887-4404-4bad-a649-cfedc2801320.mock.pstmn.io"
+		}
+	]
+}

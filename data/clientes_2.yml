@@ -1,0 +1,171 @@
+openapi: 3.0.0
+info:
+  title: API de Gestión de Usuarios
+  description: Este API permite gestionar la información de los Usuarios, incluyendo su identificación, nombre, apellido, correo electrónico, clave, teléfono y estado. Es ideal para aplicaciones que requieren mantener un registro detallado de sus usuarios.
+  version: 1.0.0
+servers:
+  - url: http://api.dev.tuempresa.com/v1
+  - url: http://api.stage.tuempresa.com/v1
+  - url: http://api.tuempresa.com/v1
+paths:
+  /usuarios:
+    get:
+      tags:
+          - usuario
+      summary: Obtener lista de Usuarios
+      responses:
+        '200':
+          description: Lista de Usuarios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/usuario'
+    post:
+      tags:
+          - usuario
+      summary: Crear un nuevo Usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/usuario'
+      responses:
+        '201':
+          description: Usuario creado
+  /usuarios/{id}:
+    get:
+      tags:
+          - usuario
+      summary: Obtener información de un Usuario específico
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Información del Usuario
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/usuario'
+        '404':
+          description: Usuario no encontrado
+    put:
+      tags:
+          - usuario
+      summary: Actualizar información de un Usuario
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/usuario'
+      responses:
+        '200':
+          description: Usuario actualizado
+        '404':
+          description: Usuario no encontrado
+    delete:
+      tags:
+          - usuario
+      summary: Eliminar un Usuario
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Usuario eliminado
+        '404':
+          description: Usuario no encontrado
+  /usuarios/searchByEmail:
+    get:
+      tags:
+          - usuario
+      summary: Buscar Usuarios por email
+      parameters:
+        - name: email
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Usuarios encontrados
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/usuario'
+        '404':
+          description: Usuario no encontrado
+  /usuarios/searchByName:
+    get:
+      tags:
+          - usuario
+      summary: Buscar Usuarios por nombre
+      parameters:
+        - name: nombre
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: apellido
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Usuarios encontrados
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/usuario'
+        '404':
+          description: Usuario no encontrado
+components:
+  schemas:
+    usuario:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
+        nombre:
+          type: string
+          example: Maria
+        apellido:
+          type: string
+          example: Perez
+        email:
+          type: string
+          example: maria@email.com
+        clave:
+          type: string
+          example: 12345
+        telefono:
+          type: string
+          example: 12345
+        estado:
+          type: string
+          enum:
+            - Activo
+            - Inactivo
+          example: Activo

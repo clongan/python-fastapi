@@ -1,0 +1,126 @@
+openapi: 3.0.0
+info:
+  title: API de Gestión de Usuarios
+  description: Este API permite gestionar la información de los Usuarios, incluyendo su identificación, nombre, apellido, correo electrónico, clave, teléfono y estado. Es ideal para aplicaciones que requieren mantener un registro detallado de sus usuarios.
+  version: 1.0.0
+servers:
+  - url: http://api.dev.tuempresa.com/v1
+  - url: http://api.stage.tuempresa.com/v1
+  - url: http://api.tuempresa.com/v1
+
+paths:
+  /usuarios:
+    get:
+      tags:
+        - usuario
+      summary: Obtener lista de Usuarios
+      responses:
+        '200':
+          description: Lista de Usuarios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/usuario'
+    post:
+      tags:
+          - usuario
+      summary: Crear un nuevo usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/usuario'
+      responses:
+        '201':
+          description: usuario creado
+
+  /usuarios/{id}:
+    get:
+      tags:
+          - usuario
+      summary: Obtener información de un usuario específico
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Información del usuario
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/usuario'
+        '404':
+          description: usuario no encontrado
+    put:
+      tags:
+          - usuario
+      summary: Actualizar información de un usuario
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/usuario'
+      responses:
+        '200':
+          description: usuario actualizado
+        '404':
+          description: usuario no encontrado
+    delete:
+      tags:
+          - usuario
+      summary: Eliminar un usuario
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: usuario eliminado
+        '404':
+          description: usuario no encontrado
+
+
+components:
+  schemas:
+    usuario:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 10
+        nombre:
+          type: string
+          example: Maria
+        apellido:
+          type: string
+          example: Perez
+        email:
+          type: string
+          example: maria@email.com
+        clave:
+          type: string
+          example: 12345
+        telefono:
+          type: string
+          example: 12345
+        estado:
+          type: string
+          enum:
+            - Activo
+            - Inactivo
+          example: Activo
