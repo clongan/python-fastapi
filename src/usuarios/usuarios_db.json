@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "nombre": "Josue",
+        "apellido": "Vargas",
+        "email": "j_vargas@gmail.com",
+        "clave": "1234",
+        "telefono": "80908090",
+        "estado": "activo"
+    },
+    {
+        "id": 3,
+        "nombre": "Karen",
+        "apellido": "Hidalgo",
+        "email": "k_hidalgo@gmail.com",
+        "clave": "54453",
+        "telefono": "86838293",
+        "estado": "activo"
+    },
+    {
+        "id": 4,
+        "nombre": "Chris",
+        "apellido": "Perez",
+        "email": "test@test.com",
+        "clave": "password",
+        "telefono": 12345678,
+        "estado": "activo"
+    },
+    {
+        "id": 5,
+        "nombre": "Karla",
+        "apellido": "Chavarria",
+        "email": "kc@gmail.com",
+        "clave": "default",
+        "telefono": 12341234,
+        "estado": "activo"
+    },
+    {
+        "id": 6,
+        "nombre": "Maria",
+        "apellido": "Barboza",
+        "email": "mb@mb.com",
+        "clave": "default",
+        "telefono": 12341234,
+        "estado": "activo"
+    }
+]
