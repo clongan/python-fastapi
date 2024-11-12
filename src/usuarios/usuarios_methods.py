@@ -31,36 +31,12 @@ def get_user_ById(id: int):
   return usuario
 
 def get_user_ByName(name: str):
-  data = read_db()
-  index = next((i for i, d in enumerate(data) if d.get("nombre").upper() == name), None) 
-  if index:
-    response = Usuario(
-                  id = data[index]["id"],
-                  nombre = data[index]["nombre"],
-                  apellido = data[index]["apellido"],
-                  email = data[index]["email"],
-                  clave = data[index]["clave"],
-                  telefono = data[index]["telefono"],
-                  estado = data[index]["estado"])
-  else:
-    log.info("User not found")
+  #TO DO
     response = None
   return response
 
 def get_user_ByEmail(email: str):
-  data = read_db()
-  index = next((i for i, d in enumerate(data) if d.get("email").upper() == email), None) 
-  if index:
-    response = Usuario(
-                  id = data[index]["id"],
-                  nombre = data[index]["nombre"],
-                  apellido = data[index]["apellido"],
-                  email = data[index]["email"],
-                  clave = data[index]["clave"],
-                  telefono = data[index]["telefono"],
-                  estado = data[index]["estado"])
-  else:
-    log.info("User not found")
+  #TO DO
     response = None
   return response
 
